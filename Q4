@@ -1,0 +1,20 @@
+//iv) Write a program which uses Enumeration and its usages of your own choice based on your understanding.
+
+
+
+object Weekdays extends Enumeration {
+  val Monday, Tuesday, Wednesday, Thursday, Friday = Value
+}
+
+object Main extends App {
+  import Weekdays._
+
+  println("Working days:")
+  Weekdays.values.foreach(day => println(day.toString))
+
+  val currentDay = Wednesday
+  println(s"Today is ${currentDay}")
+
+
+}
+

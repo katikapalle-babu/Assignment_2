@@ -1,0 +1,26 @@
+//i)Write a program to print the area and perimeter of a triangle having sides of 3, 4 and 5
+units by creating a class named 'Triangle' with  parameter length,bredth,height  in its constructor.
+
+
+class Triangle(l: Int, b: Int, h: Int) {
+  def perimeter(): Int = {
+    l + b + h
+  }
+
+  def area(): Double = {
+    (l* b * h )/2
+  }
+}
+
+object Main extends App {
+  val l = 3
+  val b = 4
+  val h = 5
+  val triangle = new Triangle(l, b, h)
+  val a = triangle.area()
+  val p = triangle.perimeter()
+
+  println(s"Area = $a square units")
+  println(s"Perimeter = $p units")
+}
+
