@@ -3,3 +3,28 @@ identify the data members   that   a   Student   class   should   have.   Also  
 behavior   of  student  in   a   university management System and identify the methods
 that should be included in Student class.
 
+package com
+case class StudentData(var email:String,var phoneNo: Long)
+class Student(val studentName:String, val studentId:Int, var studentInfo:StudentData){
+  var studentCourse:List[String]=List.empty
+  def update(email:String,phone:Long): Unit = {
+    studentInfo=StudentData(email, phone)
+  }
+  def enrollCourse(course:String): Unit = {
+    studentCourse=course :: studentCourse
+  }
+  def removeCourse(course:String): Unit = {
+    studentCourse=studentCourse.filter(_ !=course)
+  }
+  override def toString: String = {s"studentName : $studentName\nstudentId : $studentId\nstudentInfo : $studentInfo"}
+}
+object UniversityManagementSystem extends App{
+  val student=new Student("babu", 12345, StudentData("ks@gmail.com",1234556778L))
+  println(student)
+  student.enrollCourse("scala")
+  println("List of enroll cources by student "+ student.studentCourse)
+  student.enrollCourse("play")
+  println("List of enroll cources by student  "+student.studentCourse)
+  student.update("sk@gmail.com",12345321L)
+  println(student)
+}
